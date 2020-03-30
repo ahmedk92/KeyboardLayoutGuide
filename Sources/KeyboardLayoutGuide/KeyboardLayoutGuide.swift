@@ -13,7 +13,7 @@ internal class Keyboard {
     var currentHeight: CGFloat = 0
 }
 
-extension UIView {
+@objc extension UIView {
     private enum Identifiers {
         static var usingSafeArea = "KeyboardLayoutGuideUsingSafeArea"
         static var notUsingSafeArea = "KeyboardLayoutGuide"
@@ -21,13 +21,13 @@ extension UIView {
 
     /// A layout guide representing the inset for the keyboard.
     /// Use this layout guide’s top anchor to create constraints pinning to the top of the keyboard or the bottom of safe area.
-    public var keyboardLayoutGuide: UILayoutGuide {
+    @objc public var keyboardLayoutGuide: UILayoutGuide {
         getOrCreateKeyboardLayoutGuide(identifier: Identifiers.usingSafeArea, usesSafeArea: true)
     }
 
     /// A layout guide representing the inset for the keyboard.
     /// Use this layout guide’s top anchor to create constraints pinning to the top of the keyboard or the bottom of the view.
-    public var keyboardLayoutGuideNoSafeArea: UILayoutGuide {
+    @objc public var keyboardLayoutGuideNoSafeArea: UILayoutGuide {
         getOrCreateKeyboardLayoutGuide(identifier: Identifiers.notUsingSafeArea, usesSafeArea: false)
     }
 
